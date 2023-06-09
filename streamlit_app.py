@@ -23,6 +23,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 
 # Formats the text to make it look better 
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# write your own comment - what does this do?
+# Creates a text box for the user to enter a fruit
 streamlit.dataframe(fruityvice_normalized)
-
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
